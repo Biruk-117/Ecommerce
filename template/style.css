@@ -1,0 +1,91 @@
+
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    height: 100vh;
+    font-size: 1.6rem;
+    /* Font family will be Helvetica, if Helvetica is not supported then Arial, if not Arial, then sans-serif as our last option */
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+
+/* Start Layout*/
+.grid-container{
+    display: grid;
+    grid-template-areas: 'headerr' 'main' 'footer';
+    grid-template-columns: 1fr;
+    grid-template-rows: 7rem 1fr 5rem;
+    height: 100%; 
+}
+
+header{
+    grid-area: headerr;
+    background-color: #863563;
+}
+
+main{
+    grid-area: main;
+    padding: 1rem;
+}
+
+footer{
+    grid-area: footer;
+    background-color: #863563;
+    color: #ffffff;
+}
+/* End Layout*/
+
+
+/*Start common*/
+a{
+    text-decoration: none; /*removes underline from href*/
+}
+a:hover{
+    color: orange;
+}
+/*End common*/
+
+
+
+/*Start Header*/
+.row{
+    display: flex;
+    flex-wrap: wrap; /*if there is no enough space it will put the contents in separet line */
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+header a{
+    color: white;
+    padding: 1rem;
+}
+
+
+a.brand{
+    color: rgb(19, 17, 17);
+    font-size: 3rem;
+    font-weight: bold;
+}
+/*End Header*/
+
+
+
+/*Start footer*/
+.row.center{
+    justify-content: center;
+}
+/*End footer*/
+
+.grid-container.log{
+    height: 300px;
+    background: url('Logo.png');
+}
+
+.Cart-signin-padding{
+    padding-right: 25px;
+}
