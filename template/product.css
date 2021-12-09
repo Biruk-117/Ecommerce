@@ -1,0 +1,57 @@
+
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    height: 100vh;
+    font-size: 1.6rem;
+    /* Font family will be Helvetica, if Helvetica is not supported then Arial, if not Arial, then sans-serif as our last option */
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+/*Start image*/
+img{
+    border-radius: 0.5rem;
+}
+
+img.medium{
+    max-width: 29rem;
+    width: 100%;
+}
+/*End image*/
+
+/*Start Card*/
+.card{
+    border: 0.1rem #863563 solid;
+    background-color: #f8f8f8;
+    border-radius: 0.5rem;
+    margin: 1rem;
+}
+
+.card-body{
+    padding: 1rem;
+}
+
+.card-body > *{
+    margin-bottom: 0.5rem;
+}
+/*End Card*/
+
+/*start Header */
+h1{
+    font-size: 1.8rem;
+    padding: 1rem 0;
+}
+
+h2{
+    font-size: 1.8rem;
+    padding: 1rem 0;
+}
+/*End Header */
+
+.price{
+    font-size: 2rem;
+}
