@@ -66,6 +66,10 @@ a:hover{
   align-items: center;
 }
 
+.row.top{
+  align-items: flex-start;
+}
+
 
 header a{
   color: white;
@@ -88,8 +92,60 @@ a.brand{
 }
 /*End footer*/
 
+.col-1{
+  flex: 1 1 25rem;
+}
+
+.col-2{
+  flex:2 1 50rem;
+}
+
+ul{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
 
 .Cart-signin-padding{
   padding-right: 25px;
 }
+
+.success{
+  color: #20a020;
+}
+
+.error{
+  color: #a02020;
+}
+
+button{
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 0.1rem, #a4a4a4 solid;
+  font-family: Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: pointer;
+}
+
+button.primary{
+  background-color: #f0c040;
+}
+
+button.block{
+  width: 100%;
+}
+
+button:hover{
+  border: 0.1rem #404040 solid;
+}
+
+img.large{
+  width: 100%;
+}
+
+
+
+
+
 
