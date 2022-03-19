@@ -1,13 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
 
 function product(props) {
     const {product} = props
     return (
         <div key={product._id} className="card">
-            {//<Link to ={ `/product/${product._id}` }>
-            }
-
                 <a href={`/product/${product._id}`}>
 
                     <img className="medium" 
@@ -24,8 +20,6 @@ function product(props) {
                         ${product.price}
                     </div>
                 </div>
-                {//</Link>
-                }
         </div>
     );
 }

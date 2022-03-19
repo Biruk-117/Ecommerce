@@ -144,8 +144,21 @@ img.large{
   width: 100%;
 }
 
+.alert{
+  padding: 1rem;
+  border: 0.1rem solid transparent;
+  border-radius: 0.5rem;
+}
 
+.alert-info{
+  color: #2020a0;
+  background-color: #e0e0ff;
+}
 
+.alert-danger{
+  color: #a02030;
+  background-color: #e2a0a0e0;
+}
 
 
 
