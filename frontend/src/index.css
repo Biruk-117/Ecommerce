@@ -118,6 +118,10 @@ ul{
   color: #a02020;
 }
 
+
+input,
+select,
+textarea,
 button{
   padding: 1rem;
   border-radius: 0.5rem;
@@ -125,8 +129,15 @@ button{
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /*cursor: pointer;*/
+}
+
+
+button{
+  background-color: #f8f8f8;
   cursor: pointer;
 }
+
 
 button.primary{
   background-color: #f0c040;
@@ -136,6 +147,10 @@ button.block{
   width: 100%;
 }
 
+
+input:hover,
+select:hover,
+textarea:hover,
 button:hover{
   border: 0.1rem #404040 solid;
 }
@@ -143,6 +158,17 @@ button:hover{
 img.large{
   width: 100%;
 }
+
+
+img.small{
+  max-width: 5rem;
+  width: 100%;
+}
+
+.min-30{
+  min-width: 30rem;
+}
+
 
 .alert{
   padding: 1rem;
@@ -162,3 +188,11 @@ img.large{
 
 
 
+.badge{
+  background-color: #f02020;
+  color: #ffffff;
+  border-radius: 50%;
+  padding: 0.2rem 0.7rem; /*vertical horizontal*/
+  font-size: 1.4rem;
+  margin-left: 0.2rem;
+}
