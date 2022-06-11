@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import { CART_ADD_ITEM } from "../constants/cartConstants";
+import { CART_ADD_ITEM, CART_REMOVE_ITEM } from "../constants/cartConstants";
 
 export const addToCartActionFunction = (productId, qty) => async(dispatch, getState ) =>{
 
@@ -17,9 +17,21 @@ export const addToCartActionFunction = (productId, qty) => async(dispatch, getSt
                 qty
             }
         }
-
     )
 
     localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems  )) //After the page refresh the iteams will still be it cart
 
 };
+
+
+
+export const removeFromCartActionFunction = (productId) => ( dispatch, getState ) =>{
+
+    dispatch({ type: CART_REMOVE_ITEM, payload: productId });
+
+    localStorage.setItem( 'cartItems', JSON.stringify( getState().cart.cartItems ) );
+
+}
+
+
+

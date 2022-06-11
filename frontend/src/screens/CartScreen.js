@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link, useParams, useSearchParams, useNavigate } from 'react-router-dom';
-import { addToCartActionFunction } from '../actions/cartAction';
+import { addToCartActionFunction, removeFromCartActionFunction } from '../actions/cartAction';
 import { useDispatch, useSelector } from 'react-redux'
 import MessageBox from '../components/MessageBox';
 
@@ -24,7 +24,7 @@ export default function CartScreen(props) {
     }, [productId, qty, dispatch])
 
     const removeFromCartHandler = (id) => {
-        //delete action
+        dispatch( removeFromCartActionFunction(id) )
     }
 
     const navigate = useNavigate();
