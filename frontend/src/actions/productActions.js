@@ -38,7 +38,7 @@ export const detailsProductActionFunction = (productId) => async(dispatch) => {
     }catch(error){
         dispatch({ type: PRODUCT_DETAILS_FAIL, payload: error.response && error.response.data.message
         ? error.response.data.message + " yoobbbbhh"
-        : error.message + "yoo",
+        : error.message + " + Error from Product Action",
      })
     } 
 }

@@ -20,6 +20,8 @@ function ProductScreen(props) {
 
     const { productId } = useParams();
 
+    console.log("productId " + productId);
+
     useEffect(() => {
         dispatch(detailsProductActionFunction(productId));
 

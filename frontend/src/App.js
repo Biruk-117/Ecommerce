@@ -5,6 +5,7 @@ import CartScreen from './screens/CartScreen';
 import ErrorPage from './screens/ErrorPage';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
+import SigninScreen from './screens/SigninScreen';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
 
             <main>
                 <Routes>
+                    <Route path="/signin" element={<SigninScreen/>}  ></Route>
                     <Route path="/cart" element={<CartScreen/>}  ></Route>
                     <Route path="/cart/:productId" element={<CartScreen/>}  ></Route>
                     <Route exact path = "/" element = {<HomeScreen/>} ></Route>
