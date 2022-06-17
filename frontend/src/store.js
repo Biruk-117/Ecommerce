@@ -19,6 +19,7 @@ const initialState = { //After we refresh we want to see user still be signed an
         shippingAddress: localStorage.getItem('shippingAddress') 
         ? JSON.parse( localStorage.getItem('shippingAddress') )
         : {},
+        paymentMethod: 'PayPal',
     }
 };
 

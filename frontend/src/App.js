@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux'
 import { signout } from './actions/userActions';
 import RegisterScreen from './screens/RegisterScreen';
 import ShippingAddressScreen from './screens/ShippingAddressScreen';
+import PaymentMethodScreen from './screens/PaymentMethodScreen';
 
 
 function App() {
@@ -78,6 +79,7 @@ function App() {
                         <Route path="/product/:productId" element={<ProductScreen />} ></Route>
                         <Route path="*" element={<ErrorPage />} ></Route>
                         <Route path="/shipping" element={<ShippingAddressScreen />}  ></Route>
+                        <Route path="/payment" element={<PaymentMethodScreen />}  ></Route>
                     </Routes>
                 </main>
 
