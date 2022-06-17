@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import {Link, useNavigate} from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import {Link, useNavigate, useSearchParams} from 'react-router-dom';
 import { register } from '../actions/userActions';
-import { useSearchParams } from 'react-router-dom';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 
@@ -17,13 +16,20 @@ function RegisterScreen() {
 
     const [searchParams] = useSearchParams();
 
-    //const redirect = ''
+    
     const redirect = searchParams.get('redirect')? searchParams.get('redirect') : '/';
     
 
 
     const userRegister = useSelector((state) => state.userRegister);
     const { userInfo, loading, error } = userRegister;
+
+    // console.log("userInfo");
+    // console.log(userInfo);
+    // console.log("loading");
+    // console.log(loading);
+    // console.log("error");
+    // console.log(error);
 
     const submitHandler = (e)=>{
         e.preventDefault();//When submit button gets clicked, form will not be refreshed
@@ -33,7 +39,7 @@ function RegisterScreen() {
         }else{
             dispatch( register( name, email, password ) );
         }
-    }
+    };
 
     const navigate = useNavigate();
 
@@ -48,8 +54,6 @@ function RegisterScreen() {
 
         }
     }, [ userInfo, redirect, navigate ] );
-
-    console.log("redirect " + redirect);
 
     return (
         <div>

@@ -9,6 +9,7 @@ import SigninScreen from './screens/SigninScreen';
 import { useDispatch } from 'react-redux'
 import { signout } from './actions/userActions';
 import RegisterScreen from './screens/RegisterScreen';
+import ShippingAddressScreen from './screens/ShippingAddressScreen';
 
 
 function App() {
@@ -76,6 +77,7 @@ function App() {
                         <Route exact path="/" element={<HomeScreen />} ></Route>
                         <Route path="/product/:productId" element={<ProductScreen />} ></Route>
                         <Route path="*" element={<ErrorPage />} ></Route>
+                        <Route path="/shipping" element={<ShippingAddressScreen />}  ></Route>
                     </Routes>
                 </main>
 

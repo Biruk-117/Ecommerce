@@ -16,6 +16,9 @@ const initialState = { //After we refresh we want to see user still be signed an
         cartItems: localStorage.getItem('cartItems')
             ? JSON.parse(localStorage.getItem('cartItems'))
             : [],
+        shippingAddress: localStorage.getItem('shippingAddress') 
+        ? JSON.parse( localStorage.getItem('shippingAddress') )
+        : {},
     }
 };
 
