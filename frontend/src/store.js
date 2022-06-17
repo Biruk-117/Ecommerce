@@ -2,9 +2,16 @@ import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import { cartReducer } from './reducers/cartReducers';
 import { productDetailReducer, productListReducer } from './reducers/productReducers';
+import { userRegisterReducer, userSigninReducer } from './reducers/userReducers';
 
 
-const initialState = {
+const initialState = { //After we refresh we want to see user still be signed and cart to be shown
+    userSignin: {
+        userInfo: localStorage.getItem('userInfo')
+            ? JSON.parse(localStorage.getItem('userInfo'))
+            : null
+    },
+
     cart: {
         cartItems: localStorage.getItem('cartItems')
             ? JSON.parse(localStorage.getItem('cartItems'))
@@ -15,7 +22,9 @@ const initialState = {
 const reducer = combineReducers({
     productListStateFromReducer: productListReducer,
     productDetails: productDetailReducer,
-    cart: cartReducer
+    cart: cartReducer,
+    userSignin: userSigninReducer,
+    userRegister: userRegisterReducer
 });
 
 

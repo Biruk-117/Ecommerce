@@ -1,15 +1,43 @@
-import React, { useState } from 'react'
-import {Link} from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
+import { signin } from '../actions/userActions';
+import { useSearchParams } from 'react-router-dom';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
 
 function SigninScreen() {
 
-    const [ email, setEmail ] = useState('');
-    const [ password, setpassword ] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setpassword] = useState('');
 
-    const submitHandler = (e)=>{
+    const dispatch = useDispatch();
+
+    const [searchParams] = useSearchParams();
+
+    const redirect = searchParams.get('redirect') ? searchParams.get('redirect') : '/';
+
+
+    const userSinin = useSelector((state) => state.userSignin);
+    const { userInfo, loading, error } = userSinin;
+
+    const submitHandler = (e) => {
         e.preventDefault();//When submit button gets clicked, form will not be refreshed
-        //TODO: signin action
+
+        dispatch(signin(email, password));
     }
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (userInfo) {
+            if (redirect === '/') {
+                navigate('/');
+            } else {
+                navigate(`/${redirect}`);
+            }
+        }
+    }, [userInfo, redirect, navigate]);
 
 
     return (
@@ -18,6 +46,12 @@ function SigninScreen() {
                 <div>
                     <h1> Sign In </h1>
                 </div>
+                {
+                    loading && <LoadingBox></LoadingBox>
+                }
+                {
+                    error && <MessageBox variant="danger" >{error}</MessageBox>
+                }
 
                 <div>
                     <label htmlFor="email" > Email address </label>
@@ -44,15 +78,15 @@ function SigninScreen() {
                 </div>
 
                 <div>
-                    <label/>
+                    <label />
                     <button className="primary" type="submit"> Sign In </button>
                 </div>
 
-                <div> 
-                    <label/>
+                <div>
+                    <label />
                     <div>
-                        New customer? {' '} 
-                        <Link to="/register" > create your account </Link>
+                        New customer? {' '}
+                        <Link to = { `/register?redirect=${redirect}` } > create your account </Link>
                     </div>
                 </div>
 

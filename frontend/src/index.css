@@ -110,14 +110,6 @@ ul{
   padding-right: 25px;
 }
 
-.success{
-  color: #20a020;
-}
-
-.error{
-  color: #a02020;
-}
-
 
 input,
 select,
@@ -169,6 +161,20 @@ img.small{
   min-width: 30rem;
 }
 
+/*Alert*/
+
+.loading{
+  display: block !important;
+}
+
+.success{
+  color: #20a020;
+}
+
+.error{
+  color: #a02020;
+}
+
 
 .alert{
   padding: 1rem;
@@ -198,7 +204,7 @@ img.small{
 }
 
 
-/*Form*/
+/*Signin Form*/
 
 .form{
   max-width: 60rem;
@@ -215,4 +221,28 @@ img.small{
 .form label{
   margin: 1rem 0;
   display: block;
+}
+
+/*Dropdoen*/
+.dropdown{
+  display: inline-block;
+  position: relative;
+}
+
+.dropdown-content {
+  position: absolute;
+  display: none;
+  right: 0;
+  min-width: 12rem;
+  padding: 1rem;
+  z-index: 1;
+  background-color: #203040;
+  margin: 0;
+  margin-top: 0.4rem;
+  border-radius: 0.5rem;
+}
+
+.dropdown:hover .dropdown-content{
+  display: block;
+  
 }
