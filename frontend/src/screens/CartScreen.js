@@ -33,6 +33,8 @@ export default function CartScreen(props) {
         navigate('/signin?redirect=shipping');
     }
 
+   
+
     return (
         <div className="row top">
             <div className="col-2" >

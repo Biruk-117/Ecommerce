@@ -11,6 +11,7 @@ import { signout } from './actions/userActions';
 import RegisterScreen from './screens/RegisterScreen';
 import ShippingAddressScreen from './screens/ShippingAddressScreen';
 import PaymentMethodScreen from './screens/PaymentMethodScreen';
+import PlaceOrderScreen from './screens/PlaceOrderScreen';
 
 
 function App() {
@@ -80,6 +81,7 @@ function App() {
                         <Route path="*" element={<ErrorPage />} ></Route>
                         <Route path="/shipping" element={<ShippingAddressScreen />}  ></Route>
                         <Route path="/payment" element={<PaymentMethodScreen />}  ></Route>
+                        <Route path="/placeorder" element={<PlaceOrderScreen />}  ></Route>
                     </Routes>
                 </main>
 
