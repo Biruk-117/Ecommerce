@@ -3,7 +3,10 @@ import { CART_EMPTY } from '../constants/cartConstants';
 import {
     ORDER_CREATE_FAIL,
     ORDER_CREATE_REQUEST,
-    ORDER_CREATE_SUCCESS
+    ORDER_CREATE_SUCCESS,
+    ORDER_DETAILS_FAIL,
+    ORDER_DETAILS_REQUEST,
+    ORDER_DETAILS_SUCCESS
 } from '../constants/orderConstants';
 
 
@@ -58,5 +61,36 @@ export const createOrder = (order) => async (dispatch, getState) => {
                 error.response.data.message + "eeeONE"
                 : error.response + "eeeTWO",
         } )
+    }
+};
+
+
+export const detailsOrder = ( orderId ) => async( dispatch, getState ) => { // getState is used to get the token of the current user
+
+    dispatch( { type: ORDER_DETAILS_REQUEST, payload: orderId } );
+
+    const { userSignin : {userInfo} } = getState();
+    console.log( "userInfo from order action : " );
+    console.log(userInfo);
+
+    try{
+
+        const { data } = await Axios.get(`/api/orders/${orderId}` , {
+            headers: { Authorization: `Bearer ${userInfo.token}` }
+        });
+
+        console.log( "Data from order action : " );
+        console.log(data);
+
+
+        dispatch( { type: ORDER_DETAILS_SUCCESS, payload: data } );
+
+    }catch(error){
+
+        const message = error.response && error.response.data.message ?
+        error.response.data.message
+        : error.response
+
+        dispatch( { type: ORDER_DETAILS_FAIL, payload: message } );
     }
 };
