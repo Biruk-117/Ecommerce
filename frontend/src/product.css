@@ -31,10 +31,11 @@ img.medium{
     background-color: #f8f8f8;
     border-radius: 0.5rem;
     margin: 1rem;
+    max-height: 45rem;
 }
 
 .card-body{
-    padding: 1rem;
+    padding: 5rem;
 }
 
 .card-body > *{

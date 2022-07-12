@@ -63,7 +63,7 @@ a:hover{
   display: flex;
   flex-wrap: wrap; /*if there is no enough space it will put the contents in separet line */
   justify-content: space-between;
-  align-items: center;
+  align-items:center;
 }
 
 .row.top{
@@ -148,7 +148,9 @@ button:hover{
 }
 
 img.large{
-  width: 100%;
+  width: 50%;
+  /* max-height: 80rem;
+  max-width: 80rem; */
 }
 
 
@@ -258,4 +260,9 @@ img.small{
 .checkout-steps > div.active{
   border-top-color: #f08000;
   color: #f08000;
+}
+
+/*Go shopping link color*/
+.red{
+  color: rgb(238, 5, 44);
 }

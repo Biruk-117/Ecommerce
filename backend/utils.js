@@ -23,12 +23,15 @@ export const isAuth = (req, res, next) => {
     const authorization = req.headers.authorization;
 
     if (authorization) {
+        //console.log("authorizationnnnnnn");
         const token = authorization.slice(7, authorization.length0); //Bearer XXXXXXXXX,  we only want XXXXXXX which is the token
 
         jwt.verify(token, process.env.JWT_SECRET || 'somethingsecret', (err, decode) => {
             if (err) {
                 res.status(401).send({ message: 'Invalid Token' });
             }else{
+                //console.log("req.userrrrrrr");
+                //console.log(decode);
                 req.user = decode;
                 next();
             }

@@ -53,6 +53,6 @@ export const savePaymentMethod = (data) => (dispatch) => {
             payload: data,
         }
      )
-}
+};
 
 

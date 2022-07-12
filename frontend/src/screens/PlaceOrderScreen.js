@@ -1,7 +1,11 @@
-import React from 'react'
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import { createOrder } from '../actions/orderActions';
 import CheckoutSteps from '../components/CheckoutSteps'
+import { ORDER_CREATE_RESET } from '../constants/orderConstants';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox'
 
 function PlaceOrderScreen() {
     const navigate = useNavigate();
@@ -12,6 +16,9 @@ function PlaceOrderScreen() {
     if (!cart.paymentMethod) {
         navigate("/payment");
     }
+
+    const orderCreate = useSelector( state => state.orderCreate );
+    const { loading, success, error, order } = orderCreate;
 
     const toPrice = (num) => Number(num.toFixed(2));  // 5.123 => Number("5.12") => 5.12
 
@@ -27,9 +34,27 @@ function PlaceOrderScreen() {
 
     //.toFixed - adds to decimal place after a number
 
-    const placeOrderHandler = ()=>{
+    const dispatch = useDispatch();
 
-    }
+
+    const placeOrderHandler = ()=>{
+        dispatch(createOrder(  { ...cart, orderItems: cart.cartItems }   ));
+    };
+
+
+    useEffect( ()=> {
+        
+        if(success){
+            console.log("successssssssssss");
+            navigate(`/order/${order._id}`);
+
+            dispatch( {
+                type: ORDER_CREATE_RESET,
+            } );
+        }
+    }, [success, dispatch, order, navigate ] );
+
+
 
     return (
         <div>
@@ -54,7 +79,7 @@ function PlaceOrderScreen() {
 
                         <li>
                             <div className='card card-body' >
-                                <h2> Shipping </h2>
+                                <h2> Shipping Method</h2>
                                 <p>
                                     <strong> Method: </strong>{cart.paymentMethod}
 
@@ -113,7 +138,6 @@ function PlaceOrderScreen() {
                                 <div className='row'>
                                     <div>Items</div>
                                     <div>${cart.itemsPrice.toFixed(2)}</div>
-
                                 </div>
                             </li>
 
@@ -155,6 +179,14 @@ function PlaceOrderScreen() {
                                     Place Order  
                                 </button>
                             </li>
+
+                            {
+                                loading && <LoadingBox></LoadingBox>
+                            }
+
+                            {
+                                error && <MessageBox variant="danger" >{error}</MessageBox>
+                            }
 
                         </ul>
                     </div>
