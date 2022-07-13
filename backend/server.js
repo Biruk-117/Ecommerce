@@ -21,6 +21,11 @@ mongoose.connect( process.env.MONGODB_URL || 'mongodb://localhost/easyway_db', {
     //useCreateIndex: true,
 });
 
+//PAYPAL
+app.get( '/api/config/paypal', (req, res)=>{
+    res.send( process.env.PAYPAL_CLIENT_ID || 'sb' );
+} );
+
 
 //(Detail of product) Sends only one product
 // app.get('/api/products/:_id', (req, res) => {

@@ -73,13 +73,15 @@ export const detailsOrder = ( orderId ) => async( dispatch, getState ) => { // g
     console.log( "userInfo from order action : " );
     console.log(userInfo);
 
+    console.log("whyyyyyyyyy");
+
     try{
 
         const { data } = await Axios.get(`/api/orders/${orderId}` , {
             headers: { Authorization: `Bearer ${userInfo.token}` }
         });
 
-        console.log( "Data from order action : " );
+        console.log( "Dataaaaaaf from order action : " );
         console.log(data);
 
 
